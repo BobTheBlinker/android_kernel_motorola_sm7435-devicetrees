@@ -1,12 +1,13 @@
+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 %YAML 1.2
 ---
-$id: http://devicetree.org/schemas/bindings/arm/msm/mpm_counter.yaml#
+$id: http://devicetree.org/schemas/arm/msm/mpm_counter.yaml#
 $schema: http://devicetree.org/meta-schemas/core.yaml#
 
 title: MSM MPM sleep counter (mpm-v2)
 
 maintainers:
-  - Prakruthi Deepak Heragu <pheragu@codeaurora.org>
+  - Prakruthi Deepak Heragu <quic_pheragu@quicinc.com>
 
 description: |
   The MPM provides a timetick that starts when the device is powered up and
@@ -27,7 +28,9 @@ required:
   - compatible
   - reg
 
-example:
+additionalProperties: false
+
+examples:
   - |
     qcom,mpm2-sleep-counter@4a3000 {
       compatible = "qcom,mpm2-sleep-counter";

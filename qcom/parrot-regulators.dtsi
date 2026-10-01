@@ -1,6 +1,11 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ */
+
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 
-&apps_rsc {
+&apps_rsc_drv2 {
 	rpmh-regulator-cxlvl {
 		compatible = "qcom,rpmh-arc-regulator";
 		qcom,resource-name = "cx.lvl";
@@ -31,13 +36,6 @@
 			regulator-max-microvolt = <RPMH_REGULATOR_LEVEL_MAX>;
 			qcom,init-voltage-level =
 				<RPMH_REGULATOR_LEVEL_RETENTION>;
-		};
-
-		cx_cdev: regulator-cdev {
-			compatible = "qcom,rpmh-reg-cdev";
-			mboxes = <&qmp_aop 0>;
-			qcom,reg-resource-name = "cx";
-			#cooling-cells = <2>;
 		};
 	};
 
@@ -634,25 +632,6 @@
 		};
 	};
 
-	rpmh-regulator-ldod1 {
-		compatible = "qcom,rpmh-vrm-regulator";
-		qcom,resource-name = "ldod1";
-		qcom,regulator-type = "pmic5-ldo";
-		qcom,supported-modes =
-			<RPMH_REGULATOR_MODE_LPM
-			 RPMH_REGULATOR_MODE_HPM>;
-		qcom,mode-threshold-currents = <0 30000>;
-		L1D:
-		pm8350b_l1: regulator-pm8350b-l1 {
-			regulator-name = "pm8350b_l1";
-			qcom,set = <RPMH_REGULATOR_SET_ALL>;
-			regulator-min-microvolt = <1200000>;
-			regulator-max-microvolt = <1296000>;
-			qcom,init-voltage = <1200000>;
-			qcom,init-mode = <RPMH_REGULATOR_MODE_HPM>;
-		};
-	};
-
 	rpmh-regulator-msslvl {
 		compatible = "qcom,rpmh-arc-regulator";
 		qcom,resource-name = "mss.lvl";
@@ -706,6 +685,11 @@
 	rpmh-regulator-smpe8 {
 		compatible = "qcom,rpmh-vrm-regulator";
 		qcom,resource-name = "smpe8";
+		qcom,regulator-type = "pmic5-hfsmps";
+		qcom,supported-modes =
+			<RPMH_REGULATOR_MODE_RET
+			RPMH_REGULATOR_MODE_AUTO>;
+		qcom,mode-threshold-currents = <0 200000>;
 		S8E:
 		pm6150l_s8: regulator-pm6150l-s8 {
 			regulator-name = "pm6150l_s8";
@@ -713,6 +697,7 @@
 			regulator-min-microvolt = <1816000>;
 			regulator-max-microvolt = <2040000>;
 			qcom,init-voltage = <1872000>;
+			qcom,init-mode = <RPMH_REGULATOR_MODE_RET>;
 		};
 	};
 

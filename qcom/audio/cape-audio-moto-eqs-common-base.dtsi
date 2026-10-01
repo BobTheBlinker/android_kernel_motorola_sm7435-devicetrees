@@ -1,5 +1,0 @@
-/*
-   This base is original from "cape-audio-mtp.dtsi"
-*/
-#include "waipio-audio-overlay.dtsi"
-

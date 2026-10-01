@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ */
+
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 
 &soc {
@@ -223,6 +228,7 @@
 				<0x151da200 0x8>;
 			reg-names = "base", "status-reg";
 			qcom,stream-id-range = <0x0 0x400>;
+			qcom,iova-width = <36>;
 			qcom,micro-idle;
 			interconnects = <&gem_noc MASTER_APPSS_PROC
 					&cnoc3 SLAVE_IMEM>;
@@ -235,6 +241,7 @@
 				<0x151da208  0x8>;
 			reg-names = "base", "status-reg";
 			qcom,stream-id-range = <0x400 0x400>;
+			qcom,iova-width = <36>;
 			qcom,micro-idle;
 			interconnects = <&gem_noc MASTER_APPSS_PROC
 					&cnoc3 SLAVE_IMEM>;
@@ -247,6 +254,7 @@
 				<0x151da210 0x8>;
 			reg-names = "base", "status-reg";
 			qcom,stream-id-range = <0x800 0x400>;
+			qcom,iova-width = <32>;
 			qcom,micro-idle;
 			qcom,regulator-names = "vdd";
 			vdd-supply = <&hlos1_vote_mmnoc_mmu_tbu_hf0_gdsc>;
@@ -261,6 +269,7 @@
 				<0x151da218 0x8>;
 			reg-names = "base", "status-reg";
 			qcom,stream-id-range = <0xc00 0x400>;
+			qcom,iova-width = <32>;
 			qcom,micro-idle;
 			qcom,regulator-names = "vdd";
 			vdd-supply = <&hlos1_vote_mmnoc_mmu_tbu_hf1_gdsc>;
@@ -275,6 +284,7 @@
 				<0x151da220 0x8>;
 			reg-names = "base", "status-reg";
 			qcom,stream-id-range = <0x1000 0x400>;
+			qcom,iova-width = <32>;
 			qcom,micro-idle;
 			qcom,regulator-names = "vdd";
 			vdd-supply = <&hlos1_vote_turing_mmu_tbu1_gdsc>;
@@ -289,6 +299,7 @@
 				<0x151da228 0x8>;
 			reg-names = "base", "status-reg";
 			qcom,stream-id-range = <0x1400 0x400>;
+			qcom,iova-width = <32>;
 			qcom,micro-idle;
 			qcom,regulator-names = "vdd";
 			vdd-supply = <&hlos1_vote_turing_mmu_tbu0_gdsc>;
@@ -303,6 +314,7 @@
 				<0x151da230 0x8>;
 			reg-names = "base", "status-reg";
 			qcom,stream-id-range = <0x1800 0x400>;
+			qcom,iova-width = <32>;
 			qcom,micro-idle;
 			interconnects = <&lpass_ag_noc MASTER_LPASS_PROC
 					&mc_virt SLAVE_EBI1>;
@@ -315,6 +327,7 @@
 				<0x151da238 0x8>;
 			reg-names = "base", "status-reg";
 			qcom,stream-id-range = <0x1c00 0x400>;
+			qcom,iova-width = <36>;
 			qcom,micro-idle;
 			interconnects = <&pcie_noc MASTER_PCIE_0
 					&mc_virt SLAVE_EBI1>;
@@ -327,6 +340,7 @@
 				<0x151da240 0x8>;
 			reg-names = "base", "status-reg";
 			qcom,stream-id-range = <0x2000 0x400>;
+			qcom,iova-width = <32>;
 			qcom,micro-idle;
 			qcom,regulator-names = "vdd";
 			vdd-supply = <&hlos1_vote_mmnoc_mmu_tbu_sf0_gdsc>;
@@ -370,7 +384,6 @@
 		usecase4_apps_secure {
 			compatible = "qcom,iommu-debug-usecase";
 			iommus = <&apps_smmu 0x7e0 0>;
-			qcom,iommu-dma = "atomic";
 			qcom,iommu-vmid = <0xA>; /* VMID_CP_PIXEL */
 		};
 

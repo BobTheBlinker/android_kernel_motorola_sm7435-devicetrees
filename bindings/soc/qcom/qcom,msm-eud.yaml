@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 %YAML 1.2
 ---
 $id: http://devicetree.org/schemas/bindings/soc/qcom/qcom,msm-eud.yaml#
@@ -6,50 +7,47 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
 title: Qualcomm Technologies Inc Embedded USB Debugger (EUD)
 
 maintainers:
-  - Prakruthi Deepak Heragu <pheragu@codeaurora.org>
+  - Prakruthi Deepak Heragu <quic_pheragu@quicinc.com>
 
 description: |+
   The EUD (Embedded USB Debugger) is a mini-USB hub implemented
   on chip to support the USB-based debug and trace capabilities.
 
-
-
 properties:
   compatible:
-    Usage: required
-    Value type: <string>
-    Definition: Must be "qcom,msm-eud"
+    - const: qcom,msm-eud
 
   reg:
-    Usage: required
-    Value type: <prop-encoded-array>
-    Definition: address and size of EUD register space
+    items:
+      - description: address and size of EUD register space
+      - description: address and size of EUD mode manager space for secure EUD
 
   reg-names:
-    Usage: required
-    Value type: <string>
-    Definition: Must be "eud_base"
+    items:
+      - const: eud_base
+      - const: eud_mode_mgr2
 
   interrupts:
-    Usage: required
-    Value type: <prop-encoded-array>
-    Definition: Interrupt number
+    maxItems: 1
 
   interrupt-names:
-    Usage: required
-    Value type: <string>
-    Definition: Must be "eud_irq"
-
-  reg-names:
-    Usage: optional
-    Value type: <string>
-    Definition: Must be "eud_mode_mgr2" for secure eud
+    const: eud_irq
 
   qcom,secure-eud-en:
-    Usage: optional to enable secure eud
+    description: enable secure eud
 
   qcom,eud-clock-vote-req:
-    Usage: optional to enable clock voting from eud
+    description: enable clock voting from eud
+
+  qcom,eud-utmi-delay:
+    description: override default UTMI switch delay
+
+required:
+  - compatible
+  - reg
+  - reg-names
+  - interrupts
+  - interrupt-names
 
 example:
   - |
@@ -64,6 +62,6 @@ example:
 client-example:
   - |
     usb3 {
-	extcon = <&eud>;
+       extcon = <&eud>;
     };
 ...

@@ -1,5 +1,0 @@
-&mmi_charger {
-	mmi,hvdcp-power-max = <15000>;
-	mmi,ibat-calc-alignment-time = <1000>;
-};
-

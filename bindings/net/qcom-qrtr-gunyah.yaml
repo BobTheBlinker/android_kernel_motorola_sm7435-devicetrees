@@ -1,12 +1,14 @@
+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 %YAML 1.2
 ---
-$id: "http://devicetree.org/schemas/neuron.yaml#"
+$id: "http://devicetree.org/schemas/net/qrtr-gunyah.yaml#"
 $schema: "http://devicetree.org/meta-schemas/core.yaml#"
 
 title: QRTR Gunyah Transport Configuration
 
 maintainers:
-  - Chris Lew <clew@quicinc.com>
+  - Chris Lew
+  - Lei Han <quic_leihan@quicinc.com>
 
 description: |
   Configuration properties for the qrtr Gunyah Transport. This configuration is
@@ -18,10 +20,11 @@ properties:
     const: qcom,qrtr-gunyah
 
   qcom,master:
+    type: boolean
     description: Specify if this device is on the primary virtual machine.
 
   gunyah-label:
-    $ref: '/schemas/types.yaml#/definitions/u32'
+    $ref: '/schemas/types.yaml#/definitions/uint32'
     maxItems: 1
     description: The label qrtr should request interrupts with from the gunyah
                  doorbell driver.
@@ -30,12 +33,14 @@ properties:
     $ref: '/schemas/types.yaml#/definitions/phandle'
     maxItems: 1
     description: phandle reference to a reserved memory region for sharing
-                 between vms
+                 between vms.
 
 required:
-  -compatible
-  -gunyah-label
-  -shared-buffer
+  - compatible
+  - gunyah-label
+  - shared-buffer
+
+additionalProperties: false
 
 examples:
   - |
@@ -46,7 +51,7 @@ examples:
 
     qrtr-gunyah {
         compatible = "qcom,qrtr-gunyah";
-	qcom,master;
-	gunyah-label = <0>;
+        qcom,master;
+        gunyah-label = <0>;
         shared-buffer = <&qrtr_shbuf>;
     };

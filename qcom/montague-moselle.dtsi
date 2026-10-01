@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "montague-hsp.dtsi"
 
 &icnss2 {
@@ -12,24 +17,8 @@
 	status = "disabled";
 };
 
-&wlan {
-	status = "disabled";
-};
-
-&cnss_wlan_mem {
-	status = "disabled";
-};
-
 &bluetooth {
 	status = "disabled";
-};
-
-&bluetooth_qca6490 {
-	status = "disabled";
-};
-
-&bluetooth_wcn6750 {
-	status = "ok";
 };
 
 &wpss_pas {

@@ -1,6 +1,7 @@
+// SPDX-License-Identifier: BSD-3-Clause
 /*
-The file is original from qcom/parrot-moto-common-overlay-base.dtsi
-*/
+ * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ */
 
 #include "parrot-qrd.dtsi"
 #include "parrot-qrd-pm8350b.dtsi"

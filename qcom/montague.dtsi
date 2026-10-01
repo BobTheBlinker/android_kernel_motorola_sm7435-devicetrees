@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 #include "ravelin.dtsi"
 
 / {
@@ -19,7 +24,6 @@
 &soc {
 	st54spi_gpio {
 		status = "ok";
-		compatible = "st,st54spi_gpio";
 		/* gpio used as SE_nRESET */
 		gpio-power_nreset = <&tlmm 48 0x00>;
 	};

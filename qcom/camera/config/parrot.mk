@@ -1,7 +1,9 @@
 dtbo-$(CONFIG_ARCH_PARROT) := parrot-camera.dtbo
+dtbo-$(CONFIG_ARCH_PARROT) += parrot-lite-camera.dtbo
 #remove useless qcom device tree in moto build
 ifneq ($(CONFIG_MMI_DEVICE_DTBS),y)
 dtbo-$(CONFIG_ARCH_PARROT) += parrot-camera-sensor-idp.dtbo
+dtbo-$(CONFIG_ARCH_PARROT) += parrot-lite-camera-sensor-idp.dtbo
 dtbo-$(CONFIG_ARCH_PARROT) += parrot-camera-sensor-qrd.dtbo
 
 dtbo-$(CONFIG_ARCH_RAVELIN) += raveline-camera.dtbo
@@ -34,4 +36,19 @@ endif  #($(CONFIG_PAROS_DTB),y)
 ifeq ($(CONFIG_KOBE_DTB),y)
 dtbo-$(CONFIG_ARCH_PARROT) += parrot-camera-sensor-kobe-evt.dtbo
 endif  #($(CONFIG_KOBE_DTB),y)
+ifeq ($(CONFIG_MONA_DTB),y)
+dtbo-$(CONFIG_ARCH_PARROT) += parrot-camera-sensor-mona-evb.dtbo
+endif  #($(CONFIG_MONA_DTB),y)
+ifeq ($(CONFIG_LAMY_DTB),y)
+dtbo-$(CONFIG_ARCH_PARROT) += parrot-camera-sensor-lamy-evb.dtbo
+endif  #($(CONFIG_LAMY_DTB),y)
+ifeq ($(CONFIG_MONAI_DTB),y)
+dtbo-$(CONFIG_ARCH_PARROT) += parrot-camera-sensor-monai-evb.dtbo
+endif  #($(CONFIG_MONAI_DTB),y)
+ifeq ($(CONFIG_PORTOV_DTB),y)
+dtbo-$(CONFIG_ARCH_PARROT) += parrot-camera-sensor-portov-evb.dtbo
+endif  #($(CONFIG_PORTOV_DTB),y)
+ifeq ($(CONFIG_MUMBA_DTB),y)
+dtbo-$(CONFIG_ARCH_PARROT) += parrot-camera-sensor-mumba-evb.dtbo
+endif  #($(CONFIG_MUMBA_DTB),y)
 endif  #($(CONFIG_MMI_DEVICE_DTBS),y)

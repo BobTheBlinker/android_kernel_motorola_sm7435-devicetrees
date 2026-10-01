@@ -1,6 +1,0 @@
-/*
-   This base is original from "diwali-audio-qrd.dtsi"
-*/
-
-#include "diwali-audio-overlay.dtsi"
-

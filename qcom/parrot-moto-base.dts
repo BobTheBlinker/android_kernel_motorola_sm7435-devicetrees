@@ -3,8 +3,9 @@
 #include "parrot.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. Parrot SoC";
+	model = "Qualcomm Technologies, Inc. Parrot Lite and Parrot";
 	compatible = "qcom,parrot";
+	qcom,msm-id = <715 0x10000>, <663 0x10000>, <537 0x10000>, <613 0x10000>;
 	qcom,board-id = <0 0>;
 	channel-id-map = "";
 /*
@@ -19,7 +20,7 @@
 };
 
 &reserved_memory {
-	/delete-node/ ramoops_region;
+	/delete-node/ qcom_ramoops;
 };
 
 &firmware {
@@ -27,3 +28,5 @@
 		/delete-node/ fstab;
 	};
 };
+
+/delete-node/ &mem_offline;

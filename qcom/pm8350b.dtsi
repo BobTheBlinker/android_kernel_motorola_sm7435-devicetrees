@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ */
+
 #include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/spmi/spmi.h>
 #include <dt-bindings/input/qcom,hv-haptics.h>
@@ -175,7 +180,7 @@
 		};
 
 		pm8350b_amoled: qcom,amoled {
-			compatible = "qcom,qpnp-amoled-regulator";
+			compatible = "qcom,amoled-regulator";
 			#address-cells = <1>;
 			#size-cells = <0>;
 
@@ -232,7 +237,7 @@
 
 		trips {
 			pm8350b_trip0: trip0 {
-				temperature = <95000>;
+				temperature = <90000>;
 				hysteresis = <0>;
 				type = "passive";
 			};
@@ -240,13 +245,13 @@
 			pm8350b_trip1: trip1 {
 				temperature = <115000>;
 				hysteresis = <0>;
-				type = "critical";
+				type = "passive";
 			};
 
 			pm8350b_trip2: trip2 {
 				temperature = <145000>;
 				hysteresis = <0>;
-				type = "critical";
+				type = "passive";
 			};
 		};
 	};

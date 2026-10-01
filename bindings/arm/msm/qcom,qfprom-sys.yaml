@@ -1,11 +1,13 @@
+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 %YAML 1.2
 ---
-$id: http://devicetree.org/schemas/bindings/arm/msm/qcom,qfprom-sys.yaml#
+$id: http://devicetree.org/schemas/arm/msm/qcom,qfprom-sys.yaml#
 $schema: http://devicetree.org/meta-schemas/core.yaml#
 
-title: Qualcomm Technologies, Inc. QFPROM_SYS driver binding
+title: Qualcomm Technologies, Inc. QFPROM_SYS driver
 
 maintainers:
+  - Naman Jain <quic_namajain@quicinc.com>
 
 description: |+
   QFPROM_SYS provides access to the nvmem cells to the user space.
@@ -15,7 +17,7 @@ properties:
   compatible:
     const: qcom,qfprom-sys
 
-  nvmem-cell-name:
+  nvmem-cell-names:
     description: array of strings for cell names
 
   nvmem-cells:
@@ -23,10 +25,12 @@ properties:
 
 required:
   - compatible
-  - nvmem-cell-name
+  - nvmem-cell-names
   - nvmem-cells
 
-example:
+additionalProperties: false
+
+examples:
   - |
     qfprom@0 {
         compatible = "qcom,qfprom-sys";
