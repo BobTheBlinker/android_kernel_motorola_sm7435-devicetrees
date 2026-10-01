@@ -1,3 +1,5 @@
+DTC_INCLUDE += $(srctree)/../sm7435-modules/motorola/drivers/channel_id
+
 # SPDX-License-Identifier: GPL-2.0
 
 # add-overlay defines the target with following naming convention:
